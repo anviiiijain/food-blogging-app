@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ArticleCard, { ArticleCardProps } from './article-card'
 import cx from 'classnames'
 import Img1 from '../assets/article-img-1.png'
@@ -8,6 +8,8 @@ import Img4 from '../assets/article-img-4.png'
 import Img5 from '../assets/article-img-5.png'
 import Img6 from '../assets/article-img-6.png'
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from 'react-icons/md'
+import { Icon } from '@chakra-ui/react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 interface ArticlesProps {}
 
@@ -54,50 +56,75 @@ const Articles = (props: ArticlesProps) => {
   }
   return (
     <div className='w-5/6 mx-auto mt-36'>
-      <h2 className='text-primary text-center lg:text-left text-3xl md:text-4xl xl:text-5xl font-semibold tracking-wide lg:tracking-widest'>
+      <h2 className='font-poppins md:font-source-sans-pro text-primary text-center lg:text-left text-[28px] md:text-4xl xl:text-[56px] font-semibold tracking-wide lg:tracking-widest xl:tracking-[0.04em]'>
         Latest Articles
       </h2>
-      <div className='w-5/6 sm:w-auto mx-auto my-8 lg:my-20'>
-        {/* first group */}
-        <div
-          className={cx(
-            { hidden: group !== 1 },
-            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-5 xl:gap-x-10'
-          )}
-        >
-          {articlesData
-            ?.slice(0, articlesData.length / 2)
-            .map((item: ArticleCardProps) => (
-              <ArticleCard {...item} />
-            ))}
+      <AnimatePresence>
+        <div className='w-5/6 sm:w-auto mx-auto my-8 lg:mt-[5.5rem]'>
+          {/* first group */}
+          <motion.div
+            animate={{ x: 0 }}
+            initial={{ x: '-100vw' }}
+            transition={{ type: 'tween' }}
+            className={cx(
+              { hidden: group !== 1 },
+              'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-5 xl:gap-x-10'
+            )}
+          >
+            {articlesData
+              ?.slice(0, articlesData.length / 2)
+              .map((item: ArticleCardProps) => (
+                <ArticleCard {...item} />
+              ))}
+          </motion.div>
+          {/* second group */}
+          <motion.div
+            className={cx(
+              { hidden: group !== 2 },
+              'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-5 xl:gap-x-10'
+            )}
+          >
+            {articlesData
+              ?.slice(articlesData.length / 2)
+              .map((item: ArticleCardProps) => (
+                <ArticleCard {...item} />
+              ))}
+          </motion.div>
         </div>
-        {/* second group */}
-        <div
-          className={cx(
-            { hidden: group !== 2 },
-            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-5 xl:gap-x-10'
-          )}
-        >
-          {articlesData
-            ?.slice(articlesData.length / 2)
-            .map((item: ArticleCardProps) => (
-              <ArticleCard {...item} />
-            ))}
-        </div>
-      </div>
-      <div className='flex items-center gap-2 justify-center my-16'>
-        <span
-          onClick={handlePrev}
-          className='border-gray-light border-2 rounded text-gray-light'
-        >
-          <MdOutlineNavigateBefore />
+      </AnimatePresence>
+      <div className='flex items-center gap-3 justify-center my-12'>
+        <span onClick={handlePrev}>
+          <Icon
+            w={[4, 5, 6]}
+            h={[4, 5, 6]}
+            color={group === 1 ? 'gray.light' : 'gray.dark'}
+            as={MdOutlineNavigateBefore}
+            className={cx(
+              {
+                'border-gray-light cursor-not-allowed': group === 1,
+                'border-gray-dark cursor-pointer': group === 2,
+              },
+              ' border-[1px] rounded'
+            )}
+          />
         </span>
-        <span className='text-xs md:text-sm'>{group}/2</span>
-        <span
-          onClick={handleNext}
-          className='border-gray-dark border-2 rounded text-gray-dark'
-        >
-          <MdOutlineNavigateNext />
+        <span className='text-xs md:text-sm lg:text-base xl:text-[22px] text-gray-dark'>
+          {group}/2
+        </span>
+        <span onClick={handleNext}>
+          <Icon
+            w={[4, 5, 6]}
+            h={[4, 5, 6]}
+            color={group === 2 ? 'gray.light' : 'gray.dark'}
+            as={MdOutlineNavigateNext}
+            className={cx(
+              {
+                'border-gray-light cursor-not-allowed': group === 2,
+                'border-gray-dark cursor-pointer': group === 1,
+              },
+              ' border-[1px] rounded'
+            )}
+          />
         </span>
       </div>
     </div>

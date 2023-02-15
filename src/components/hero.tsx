@@ -9,22 +9,18 @@ const Hero = (props: HeroProps) => {
   return (
     <div className='md:w-11/12 lg:w-5/6 lg:h-screen mx-auto flex flex-col-reverse md:flex-row'>
       {/* text content in hero */}
-      <div className='flex flex-col justify-center items-center md:items-start my-20 md:my-32 lg:mt-16 lg:mb-12'>
-        <div className='w-4/5 sm:w-2/5 md:w-full lg:w-2/3 text-center md:text-left 2xl:w-1/2 flex flex-col gap-y-4 md:gap-y-8 items-center md:items-start'>
-          <h1 className='text-primary leading-tight text-[36px] md:text-4xl xl:text-6xl md:leading-tight font-bold'>
+      <div className='flex flex-col justify-center items-center md:items-start my-16 md:my-28 lg:mt-16 lg:mb-12'>
+        <div className='w-2/3 sm:w-1/2 md:w-5/6 lg:w-3/5 2xl:w-1/2 text-center md:text-left flex flex-col gap-y-4 xl:gap-y-8 xl:pr-20 items-center md:items-start'>
+          <h1 className='text-primary font-source-sans-pro text-[38px] md:text-4xl lg:text-5xl xl:text-[62px] leading-[48px] md:leading-tight xl:leading-[69px] font-bold'>
             Discover the <span className='text-accent'>Best</span> Food and
             Drinks
           </h1>
-          <p className='text-[11px] md:text-base  text-body font-normal tracking-wide mb-5'>
+          <p className='font-open-sans text-[11px] md:text-sm xl:text-[16.44px] xl:leading-[27.41px]  text-body font-normal tracking-wide mb-3'>
             Naturally made Healthcare Products for the better care & support of
             your body.
           </p>
-          <CustomButton
-            borderRadius='1.5rem'
-            colorScheme='accent'
-            size={['sm', 'lg']}
-          >
-            Explore Now!
+          <CustomButton colorScheme='accent' size={['sm', 'sm', 'md', 'lg']}>
+            <span className='font-open-sans'>Explore Now!</span>
           </CustomButton>
         </div>
       </div>

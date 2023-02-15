@@ -5,7 +5,7 @@ import Footer from './components/footer'
 import Header from './components/header'
 import Hero from './components/hero'
 import { ChakraProvider } from '@chakra-ui/react'
-import { theme } from './theme'
+import { theme } from './theme/index'
 
 function App() {
   return (
@@ -14,7 +14,6 @@ function App() {
       <Hero />
       <About />
       <Articles />
-      {/* <Carousel /> */}
       <Footer />
     </ChakraProvider>
   )

@@ -1,22 +1,23 @@
-import { ReactComponent as Logo } from '../assets/logo.svg'
+import Logo from '../assets/logo.png'
 import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { ImFacebook } from 'react-icons/im'
 import { Icon } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/react'
 
 interface FooterProps {}
 
 const Footer = (props: FooterProps) => {
   return (
-    <div className='w-screen bg-gray-default'>
+    <div className='w-screen bg-gray-default font-source-sans-pro '>
       <div className='w-4/5 md:w-5/6 mx-auto flex flex-col md:flex-row gap-y-8 justify-between py-6 md:py-20'>
-        <div className='lg:w-1/6 my-auto'>
-          <div className=' w-5/6 md:w-full'>
-            <Logo className='w-full h-full' />
+        <div className='w-1/4 sm:w-1/6 mx-auto my-5 md:my-auto md:mx-0'>
+          <div className='lg:w-5/6 md:w-full'>
+            <Image src={Logo} className='w-full h-full' />
           </div>
         </div>
         <div className='md:w-1/5'>
-          <div className='text-body tracking-wide text-[8.76px] md:text-[10px] xl:text-sm flex flex-col gap-y-3 md:gap-y-6'>
-            <h4 className='text-primary font-semibold text-base xl:text-lg tracking-wider'>
+          <div className='text-body tracking-wide text-[8.76px] md:text-[10px] xl:text-[14.65px] flex flex-col gap-y-3 md:gap-y-6'>
+            <h4 className='text-primary font-semibold text-[15.77px] xl:text-[18.84px] leading-[27px] tracking-[0.03em]'>
               Contact Us
             </h4>
             <p>
@@ -27,8 +28,8 @@ const Footer = (props: FooterProps) => {
             <p>(904) 443-0343</p>
           </div>
         </div>
-        <div className=' text-gray-footer tracking-wide text-[8.76px] md:text-[10px] xl:text-sm flex flex-col justify-between gap-y-3 md:gap-y-6'>
-          <h4 className='text-primary font-semibold text-base xl:text-lg tracking-wider'>
+        <div className=' text-gray-footer tracking-wide text-[8.76px] md:text-[10px] xl:text-[14.65px] flex flex-col justify-between gap-y-3 md:gap-y-6'>
+          <h4 className='text-primary font-semibold text-[15.77px] xl:text-[18.84px] leading-[27px] tracking-[0.03em]'>
             More
           </h4>
           <p>About Us</p>
@@ -36,9 +37,9 @@ const Footer = (props: FooterProps) => {
           <p>Career</p>
           <p>Contact Us</p>
         </div>
-        <div className='md:w-1/5 text-gray-footer tracking-wide text-[8.76px] md:text-[10px] xl:text-sm flex flex-col-reverse md:flex-col justify-between'>
+        <div className='md:w-1/5 text-gray-footer tracking-wide text-[8.76px] md:text-[10px] xl:text-[14.65px] flex flex-col-reverse md:flex-col justify-between'>
           <div className='w-fit mx-auto md:mr-0'>
-            <h4 className='hidden md:block text-primary font-semibold text-base xl:text-lg tracking-wider'>
+            <h4 className='hidden md:block text-primary font-semibold text-[15.77px] xl:text-[18.84px] leading-[27px] tracking-[0.03em]'>
               Social Links
             </h4>
             <div className='flex gap-x-4 md:gap-x-7 my-2 md:my-4'>

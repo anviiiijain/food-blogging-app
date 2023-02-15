@@ -19,6 +19,15 @@ module.exports = {
           end: '#3C509D0A',
         },
       },
+      borderRadius: {
+        21: '21px',
+      },
+      fontSize: {},
+      spacing: {
+        26: '26px',
+        14: '14px',
+        34: '34px',
+      },
     },
   },
   plugins: [],
