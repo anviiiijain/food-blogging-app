@@ -38,25 +38,6 @@ const variants = {
 const slideUpVariant = {
   hidden: { opacity: 0, y: 100 },
   visible: { opacity: 1, y: 0 },
-  enter: (direction: number) => {
-    return {
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-      transition: {
-        x: { type: 'spring', stiffness: 300, damping: 30 },
-        opacity: { duration: 0.2 },
-      },
-    }
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-    transition: {
-      x: { type: 'spring', stiffness: 300, damping: 30 },
-      opacity: { duration: 0.2 },
-    },
-  },
 }
 
 const Articles = () => {
@@ -129,15 +110,7 @@ const Articles = () => {
             {articlesData
               ?.slice(articlesData?.length / 2)
               .map((item: ArticleCardProps, idx) => (
-                <motion.div
-                  variants={slideUpVariant}
-                  custom={direction}
-                  initial='hidden'
-                  whileInView='visible'
-                  animate={controls}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + idx / 10, duration: 0.3 }}
-                >
+                <motion.div>
                   <ArticleCard {...item} />
                 </motion.div>
               ))}
