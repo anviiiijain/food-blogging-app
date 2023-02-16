@@ -117,7 +117,7 @@ const Articles = () => {
           </motion.div>
         </div>
       </AnimatePresence>
-      <div className='flex items-center gap-3 justify-center my-12'>
+      <div className='flex items-center gap-3 justify-center my-16'>
         <span onClick={handlePrev}>
           <Icon
             w={[4, 5, 6]}
